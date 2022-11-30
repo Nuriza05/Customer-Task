@@ -1,5 +1,7 @@
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Customer implements Service {
@@ -16,15 +18,18 @@ public class Customer implements Service {
     }
 
     @Override
-    public LocalDate getAge() {
+    public LocalDate getAge() throws InputMismatchException{
         LocalDate age = LocalDate.now().minusYears(dateOfBirth.getYear());
         return age;
     }
 
     @Override
-    public Customer[] getStudentsSameCountry(Customer[]customers  ) {
-        String country = new Scanner(System.in).next();
-      int counter = 0;
+    public Customer[] getStudentsSameCountry(Customer[]customers) throws MyException {
+            String country = new Scanner(System.in).next();
+            if (!country.matches("[a-zA-Za-яА-Я]*"))
+                throw new MyException("Write the country name! Please!");
+
+        int counter = 0;
         for (Customer customer : customers) {
             if (customer.country.name().equals(country.toUpperCase())) {
                 counter++;
@@ -42,7 +47,7 @@ public class Customer implements Service {
     }
 
     @Override
-    public Country[] sortCountry(Customer[]customers) {
+    public Country[] sortCountry(Customer[]customers){
         Country[]countries = new Country[customers.length];
         int index = 0 ;
         for (Customer customer : customers) {

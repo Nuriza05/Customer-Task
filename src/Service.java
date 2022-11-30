@@ -2,8 +2,8 @@ import java.time.LocalDate;
 
 public interface Service {
 
-     LocalDate getAge();
-     Customer[] getStudentsSameCountry(Customer[]customers);
+     LocalDate getAge() throws Exception;
+     Customer[] getStudentsSameCountry(Customer[]customers) throws Exception;
      Country[] sortCountry(Customer[]customers);
      Customer[] getAll(Customer[]customers);
 }

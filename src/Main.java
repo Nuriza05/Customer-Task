@@ -8,17 +8,17 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Customer c2 = new Customer("Nuriza","Muratova","@nurizm", LocalDate.of(2005, 2,5),Country.KYRGYZSTAN);
         Customer c1 = new Customer("Bek","Asylov","@bek", LocalDate.of(2002, 4,12),Country.KAZAKHSTAN);
         Customer c3 = new Customer("Elif","Gogebakan","@elizm", LocalDate.of(2000, 8,21),Country.TURKEY);
 
         Customer[]customers = {c1,c2,c3};
 
-        System.out.println(c1.getAge());
+//        System.out.println(c1.getAge());
        System.out.println(Arrays.toString(c1.getStudentsSameCountry(customers)));
-        System.out.println(Arrays.toString(c1.sortCountry(customers)));
-       System.out.println(Arrays.toString(c1.getAll(customers)));
+//        System.out.println(Arrays.toString(c1.sortCountry(customers)));
+//       System.out.println(Arrays.toString(c1.getAll(customers)));
 
 
 
